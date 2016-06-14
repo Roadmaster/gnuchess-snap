@@ -9,12 +9,9 @@ description: |
 confinement: strict
 
 apps:
-  gnuchess-backend:
+  gnuchess:
     command: bin/gnuchess-script
-    plugs: [x11, unity7, home, system-observe]
-  xboard:
-    command: bin/xboard-script
-    plugs: [x11, unity7, home, system-observe]
+    plugs: [home]
 
 parts:
     gnuchess:
@@ -22,40 +19,10 @@ parts:
         source: gnuchess.tar.gz
         stage:
             - -share/gnuchess/gnuchess.ini
-    xboard:
-        plugin: autotools
-        build-packages:
-                - texinfo
-                - libcairo2-dev
-                - libcairo2
-                - libgdk-pixbuf2.0-0
-                - libglib2.0-0
-                - libpango-1.0-0
-                - librsvg2-2
-                - libpangocairo-1.0-0
-                - libpango1.0-dev
-                - librsvg2-dev
-                - libgtk2.0-0
-                - libgtk2.0-dev
-        stage-packages:
-                - texinfo
-                - libcairo2
-                - libgdk-pixbuf2.0-0
-                - libglib2.0-0
-                - libpango-1.0-0
-                - librsvg2-2
-                - libpangocairo-1.0-0
-                - libgtk2.0-0
-                - xfonts-75dpi
-                - xfonts-100dpi
-        source: xboard.tar.gz
-        configflags:
-            - --infodir=$DATADIR/info2
     glue:
         plugin: copy
         files:
              gnuchess-script: bin/gnuchess-script
-             xboard-script: bin/xboard-script
              gnuchess.ini: share/gnuchess/gnuchess.ini
     books:
         plugin: copy
