@@ -1,0 +1,18 @@
+Gnuchess snap.
+
+To build:
+
+ 1. make snap
+
+This will:
+
+ 1. Fetch gnuchess, xboard and the book's png files.
+ 2. Build the book.bin, for which it needs to build gnuchess itself.
+ 3. Create a snap with gnuchess only, and the book.bin
+
+Notes:
+
+Xboard integration is not fully working yet. It needs --devmode, and I prefer
+not to release a devmode snap, as it's a crutch to get over snap limitations
+which should not affect xboard. I'll wait until snap grows support for the
+proper interface.
