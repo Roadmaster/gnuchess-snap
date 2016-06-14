@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export GNUCHESS_PKGDATADIR=$SNAP/share/gnuchess
+$SNAP/bin/gnuchess $@
