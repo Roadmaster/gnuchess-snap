@@ -1,5 +1,5 @@
 name: gnuchess 
-version: 1.0
+version: 2.0
 summary: Plays a game of chess, either against the user or against itself 
 description: |
      Gnuchess is an updated version of the GNU chess playing program. It is now
@@ -11,19 +11,47 @@ confinement: strict
 apps:
   gnuchess:
     command: bin/gnuchess-script
-    plugs: [home]
+  xboard:
+    command: bin/xboard-script
+    plugs: [x11, unity7, network]
 
 parts:
+    xboard:
+        plugin: autotools
+        source: xboard.tar.gz
+        build-packages:
+                - texinfo
+                - libcairo2-dev
+                - libcairo2
+                - libgdk-pixbuf2.0-0
+                - libglib2.0-0
+                - libpango-1.0-0
+                - librsvg2-2
+                - libpangocairo-1.0-0
+                - libpango1.0-dev
+                - librsvg2-dev
+                - libgtk2.0-0
+                - libgtk2.0-dev
+        stage-packages:
+                - libcairo2
+                - libgdk-pixbuf2.0-0
+                - libglib2.0-0
+                - libpango-1.0-0
+                - librsvg2-2
+                - libpangocairo-1.0-0
+                - libgtk2.0-0
     gnuchess:
         plugin: autotools
         source: gnuchess.tar.gz
         stage:
             - -share/gnuchess/gnuchess.ini
+            - -share/info/dir
     glue:
         plugin: copy
         files:
              gnuchess-script: bin/gnuchess-script
-             gnuchess.ini: share/gnuchess/gnuchess.ini
+             gnuchess-snap.ini: share/gnuchess/gnuchess.ini
+             xboard-script: bin/xboard-script
     books:
         plugin: copy
         files:

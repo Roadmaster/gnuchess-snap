@@ -40,7 +40,8 @@ gnuchess/src/gnuchess: $(GNUCHESS_LATEST)
 
 book.bin: gnuchess/src/gnuchess book_1.00.pgn.gz  book_1.01.pgn.gz book_1.02.pgn.gz
 	gunzip -f -k book_*.pgn.gz
-	echo "quit" | gnuchess/src/gnuchess --addbook book_1.0*.pgn
+
+	echo "quit" | GNUCHESS_PKGDATADIR=./ gnuchess/src/gnuchess --addbook book_1.0*.pgn
 
 clean:
 	rm -f gnuchess-*.tar.gz*
