@@ -2,7 +2,7 @@ book_1*
 gnuchess/
 gnuchess-*.tar.gz
 xboard-*.tar.gz
-xboard-*
+xboard-*/
 xboard.tar.gz
 gnuchess.tar.gz
 *.snap
