@@ -1,6 +1,5 @@
 **************************************
 Snap packaging for gnuchess and XBoard
-
 **************************************
 
 To build:
