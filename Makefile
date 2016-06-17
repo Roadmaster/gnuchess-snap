@@ -18,6 +18,7 @@ gnuchess.tar.gz: $(GNUCHESS_LATEST)
 xboard.tar.gz: $(XBOARD_LATEST)
 	ln -fs $< xboard.tar.gz
 
+
 $(GNUCHESS_LATEST):
 	curl -O $(GNUCHESS_URL)/$(GNUCHESS_LATEST)
 	curl -O $(GNUCHESS_URL)/$(GNUCHESS_LATEST).sig
@@ -29,6 +30,12 @@ $(XBOARD_LATEST):
 	curl -O $(XBOARD_URL)/$(XBOARD_LATEST).sig
 	gpg --keyserver pgp.mit.edu --recv-keys 446E23EE
 	gpg --verify $(XBOARD_LATEST).sig
+	# Let's patch xboard to avoid the nice call.
+	tar -zxf $(XBOARD_LATEST)
+	patch -p0 < no-nice.patch
+	tar -zcf $(XBOARD_LATEST) $(shell basename $(XBOARD_LATEST) .tar.gz)
+	rm -rf $(shell basename $(XBOARD_LATEST) .tar.gz)
+
 
 %.pgn.gz:
 	curl -O http://ftp.gnu.org/gnu/chess/$@
