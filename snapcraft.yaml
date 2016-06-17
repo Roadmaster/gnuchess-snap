@@ -23,7 +23,7 @@ parts:
         plugin: copy
         files:
              gnuchess-script: bin/gnuchess-script
-             gnuchess.ini: share/gnuchess/gnuchess.ini
+             gnuchess-snap.ini: share/gnuchess/gnuchess.ini
     books:
         plugin: copy
         files:
