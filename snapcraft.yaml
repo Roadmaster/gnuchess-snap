@@ -1,5 +1,5 @@
 name: gnuchess 
-version: 2.0
+version: 2.1
 summary: Plays a game of chess. Run "gnuchess.readme" for more information.
 description: |
      Gnuchess is an updated version of the GNU chess playing program. It is now
@@ -19,7 +19,7 @@ apps:
     plugs: [home]  # needed to write log files in $HOME
   xboard:
     command: bin/xboard-script
-    plugs: [x11, unity7, network]
+    plugs: [x11, unity7, network, home]  # Needed to write game files in $HOME
   readme:
     command: bin/readme-script
 
