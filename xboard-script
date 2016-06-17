@@ -108,4 +108,5 @@ if [ ! -d $XDG_DATA_HOME/icons ]; then
   done
 fi
 export GTK_PATH=$SNAP/usr/lib/$ARCH/gtk-2.0
-$SNAP/bin/xboard -pid $SNAP/share/games/xboard/themes/default/ $@
+export GNUCHESS_PKGDATADIR=$SNAP/share/gnuchess
+$SNAP/bin/xboard -pid $SNAP/share/games/xboard/themes/default/ -fcp "gnuchess-script --xboard" $@

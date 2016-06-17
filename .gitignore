@@ -13,3 +13,4 @@ parts
 snap
 stage
 *.sig
+prime/

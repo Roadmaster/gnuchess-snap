@@ -1,4 +1,5 @@
 #!/bin/bash
 
 export GNUCHESS_PKGDATADIR=$SNAP/share/gnuchess
+cd $SNAP_USER_DATA
 $SNAP/bin/gnuchess $@

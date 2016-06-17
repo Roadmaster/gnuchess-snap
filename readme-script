@@ -1,0 +1,14 @@
+#!/bin/bash
+cat << EOF
+The gnuchess snap includes both the gnuchess CLI engine and the graphical
+XBoard frontend.
+
+Run "gnuchess" to use the CLI.
+
+Run "gnuchess.xboard" to use XBoard with gnuchess as an engine.
+
+Xboard takes the usual parameters, so it can for example be used for
+internet play on a chess server:
+
+  gnuchess.xboard -icshost freechess.org
+EOF
