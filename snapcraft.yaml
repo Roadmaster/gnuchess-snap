@@ -1,5 +1,5 @@
 name: gnuchess 
-version: 2.1
+version: 2.2
 summary: Plays a game of chess. Run "gnuchess.readme" for more information.
 description: |
      Gnuchess is an updated version of the GNU chess playing program. It is now
@@ -28,6 +28,8 @@ parts:
         plugin: autotools
         source: xboard.tar.gz
         build-packages:
+                - build-essential
+                - g++
                 - texinfo
                 - libcairo2-dev
                 - libcairo2
@@ -51,6 +53,9 @@ parts:
     gnuchess:
         plugin: autotools
         source: gnuchess.tar.gz
+        build-packages:
+                - build-essential
+                - g++
         stage:
             - -share/gnuchess/gnuchess.ini
             - -share/info/dir
