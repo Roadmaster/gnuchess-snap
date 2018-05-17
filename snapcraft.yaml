@@ -1,6 +1,7 @@
-name: gnuchess 
-version: 1.0
-summary: Plays a game of chess, either against the user or against itself 
+name: gnuchess
+version: 6.2.5
+summary: Plays a game of chess, either against the user or against itself
+grade: stable
 description: |
      Gnuchess is an updated version of the GNU chess playing program. It is now
      based on the fruit chess engine and uses the UCI chess engine protocol. It has
